@@ -74,3 +74,9 @@ class MainPage(BasePage):
     def get_items_count(self):
         items_count = len(self.driver.find_elements(*MainPageLocators.INVENTORY_ITEMS))
         return items_count
+
+    def get_1_price(self):
+        items = self.driver.find_elements(*MainPageLocators.INVENTORY_ITEM_PRICES)
+        price = items[0].text
+        return price
+

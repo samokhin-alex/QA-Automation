@@ -1,3 +1,5 @@
+import time
+
 import pytest
 
 from conftest import main_page
@@ -72,6 +74,36 @@ def test_deletion_all_from_cart(main_page, cart_page, login_page):
     cart_page.delete_all_from_cart()
     cart_page.should_be_empty_cart(cart_items)
 
-# def test_fill_checkout_information(main_page, login_page, cart_page, ):
-#     pass
+
+def test_fill_valid_checkout_information(main_page, login_page, cart_page, checkout_page):
+    login_page.standard_login()
+    checkout_page.open_checkout_page()
+    checkout_page.fill_valid_checkout_information()
+    checkout_page.should_be_filled_all_checkout_information()
+
+def test_check_correct_tax(main_page, login_page, cart_page, checkout_page, purchase_page):
+    login_page.standard_login()
+    time.sleep(5)
+    main_page.add_1_item_to_cart()
+    main_page.get_1_price()
+    main_page.open_cart()
+    cart_page.go_to_checkout_page()
+    checkout_page.fill_valid_checkout_information()
+    checkout_page.click_continue_button()
+    purchase_page.should_be_correct_tax()
+
+def test_purchase_item(main_page, login_page, cart_page, checkout_page, purchase_page, purchase_complete_page):
+    login_page.standard_login()
+    main_page.add_1_item_to_cart()
+    main_page.get_1_price()
+    main_page.open_cart()
+    cart_page.go_to_checkout_page()
+    checkout_page.fill_valid_checkout_information()
+    checkout_page.click_continue_button()
+    purchase_page.should_be_correct_price()
+    purchase_page.click_finish_button()
+    purchase_complete_page.should_be_completed_purchase()
+
+
+
 

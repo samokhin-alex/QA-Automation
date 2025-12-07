@@ -32,3 +32,7 @@ class CartPage(MainPage):
         removed_cart_items = self.get_removed_cart_items()
         assert cart_items == removed_cart_items, \
             f"Количество добавленных товаров ({cart_items}) не совпадает с количеством удаленных товаров ({removed_cart_items})"
+
+    def go_to_checkout_page(self):
+        button = self.driver.find_element(*CartPageLocators.CHECKOUT_BUTTON)
+        button.click()

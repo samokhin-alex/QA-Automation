@@ -27,3 +27,12 @@ class CheckoutPageLocators:
     LAST_NAME_INPUT_FIELD = (By.ID, 'last-name')
     POSTAL_CODE_INPUT_FIELD = (By.ID, 'postal-code')
     CONTINUE_BUTTON = (By.ID, 'continue')
+
+class PurchasePageLocators:
+    PURCHASE_ITEMS = (By.CSS_SELECTOR, '[data-test="inventory-item"]')
+    SUBTOTAL_PRICE = (By.CSS_SELECTOR, '[data-test="subtotal-label"]')
+    TAX = (By.CSS_SELECTOR, '[data-test="tax-label"]')
+    FINISH_BUTTON = (By.ID, 'finish')
+
+class PurchaseCompleteLocators:
+    THANK_YOU_FIELD = (By.CSS_SELECTOR, '[data-test="complete-header"]')

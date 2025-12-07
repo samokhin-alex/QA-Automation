@@ -44,6 +44,21 @@ class ReadConfig:
         return valid_last_name
 
     @classmethod
-    def get_valid_postel_code(cls):
-        valid_postel_code = config.get('common value', 'valid_postel_code')
-        return valid_postel_code
+    def get_valid_postal_code(cls):
+        valid_postal_code = config.get('common value', 'valid_postal_code')
+        return valid_postal_code
+
+    @classmethod
+    def get_checkout_url(cls):
+        checkout_url = config.get('common value', 'checkout_url')
+        return checkout_url
+
+    @classmethod
+    def get_purchase_url(cls):
+        purchase_url = config.get('common value', 'purchase_url')
+        return purchase_url
+
+    @classmethod
+    def get_purchase_complete_url(cls):
+        purchase_complete_url = config.get('common value', 'purchase_complete_url')
+        return purchase_complete_url

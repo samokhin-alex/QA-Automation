@@ -11,8 +11,10 @@ class BasePage():
         self.timeout = timeout
         self.wait = WebDriverWait(driver, 10)
 
-    def open_url(self):
-        self.driver.get(self.url)
+    def open_url(self, url=None):
+        if url is None:
+            url = self.url
+        self.driver.get(url)
 
     def is_element_present(self, locator: Tuple[str, str], timeout: int = 5) -> bool:
         try:
